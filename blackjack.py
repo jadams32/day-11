@@ -35,33 +35,40 @@ import random
 print("Welcome to blackJack!")
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
-first_hand_user = []
-first_hand_computer = []
+#def game_start():
+hand_user = []
+hand_computer = []
 
-first_hand_user.append(random.choice(cards))
-first_hand_user.append(random.choice(cards))
-print(f"You currently have {sum(first_hand_user)}")
-
-first_hand_computer.append(random.choice(cards))
-first_hand_computer.append(random.choice(cards))
-print(f"The dealer currently has {first_hand_computer[0]}")
-
-draw_again = input('Would you like to draw again? "Yes" or "No"\n').lower()
-
-if draw_again == "yes":
+def draw():
     next_card = random.choice(cards)
-    first_hand_user.append(next_card)
-    print(first_hand_user)
-else:
-    while sum(first_hand_computer) < 16:
-        com_next_card = random.choice(cards)
-        first_hand_computer.append(com_next_card)
-        sum(first_hand_computer)
-    print(first_hand_computer)
+    hand_user.append(next_card)
+    print(f"You currently have {sum(hand_user)}")
 
+def computer_play():
+    while sum(hand_computer) < 16:
+        comp_next_card = random.choice(cards)
+        hand_computer.append(comp_next_card)
+        sum(hand_computer)
+    print(f"The dealer currently has {sum(hand_computer)}")
 
-    # Todo create game loop for play again
-    # Todo make function for gameplay
+hand_user.append(random.choice(cards))
+hand_user.append(random.choice(cards))
+print(f"You currently have {sum(hand_user)}")
+
+hand_computer.append(random.choice(cards))
+hand_computer.append(random.choice(cards))
+print(f"The dealer currently has {hand_computer[0]}")
+
+#game_start()
+playing = True
+while playing:
+    draw_again = input('Would you like to draw again? "Yes" or "No"\n').lower()
+    if draw_again == "yes":
+        draw()
+    else:
+        playing = False
+        computer_play()
+
     # Show different values for the Ace depending on score
     # Create if logic to determine winner
     # Create statements to show final card set of both players to the user
