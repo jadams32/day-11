@@ -42,35 +42,46 @@ hand_computer = []
 def draw():
     next_card = random.choice(cards)
     hand_user.append(next_card)
-    print(f"You currently have {sum(hand_user)}")
+    print(f"Your cards: {hand_user} Current total: {sum(hand_user)}")
 
 def computer_play():
     while sum(hand_computer) < 16:
         comp_next_card = random.choice(cards)
         hand_computer.append(comp_next_card)
         sum(hand_computer)
-    print(f"The dealer currently has {sum(hand_computer)}")
+    print(f"The dealers final hand is {hand_computer} Total: {sum(hand_computer)}")
+
+def evaluate():
+    if sum(hand_computer) == 21:
+        print(f"Dealer has {hand_computer}. Dealer Wins!")
+
+
 
 hand_user.append(random.choice(cards))
 hand_user.append(random.choice(cards))
-print(f"You currently have {sum(hand_user)}")
+print(f"Your cards: {hand_user} Current total: {sum(hand_user)}")
 
 hand_computer.append(random.choice(cards))
 hand_computer.append(random.choice(cards))
-print(f"The dealer currently has {hand_computer[0]}")
+print(f"The dealers first card is {hand_computer[0]}")
 
 #game_start()
 playing = True
 while playing:
-    draw_again = input('Would you like to draw again? "Yes" or "No"\n').lower()
-    if draw_again == "yes":
-        draw()
+    if sum(hand_user)< 22:
+        draw_again = input('Would you like to draw again? "Yes" or "No"\n').lower()
+        if draw_again == "yes":
+            draw()
+        else:
+            playing = False
+            computer_play()
+            evaluate()
     else:
-        playing = False
+        print(f"Your cards: {hand_user} Total: {sum(hand_user)}. You went over 21 You Lose")
         computer_play()
+        playing = False
 
     # Show different values for the Ace depending on score
     # Create if logic to determine winner
     # Create statements to show final card set of both players to the user
-    # Create inputs for better UI
     # Refractor code
