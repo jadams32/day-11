@@ -35,7 +35,6 @@ import random
 print("Welcome to blackJack!")
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
-#def game_start():
 hand_user = []
 hand_computer = []
 
@@ -94,7 +93,7 @@ while playing:
         computer_play()
         playing = False
 
+# Remaining Tasks
     # Show different values for the Ace depending on score
-    # Create if logic to determine winner
     # Create statements to show final card set of both players to the user
     # Refractor code
