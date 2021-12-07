@@ -54,6 +54,19 @@ def computer_play():
 def evaluate():
     if sum(hand_computer) == 21:
         print(f"Dealer has {hand_computer}. Dealer Wins!")
+    elif sum(hand_user) == 21:
+        print(f"You have {hand_user}. You win!")
+    elif sum(hand_computer) > 21:
+        print(f"Dealer has {hand_computer}. Total: {sum(hand_computer)}")
+        print(f"You have {hand_user}. Total: {sum(hand_user)} You win!")
+    elif sum(hand_user) == sum(hand_computer):
+        print(f"Draw! Dealer has {hand_computer} you have {hand_user}.")
+    elif sum(hand_user) > sum(hand_computer):
+        print(f"Dealer has {hand_computer}. Total: {sum(hand_computer)}")
+        print(f"You have {hand_user}. Total: {sum(hand_user)} You win!")
+    elif sum(hand_user) < sum(hand_computer):
+        print(f"You have {hand_user}. Total: {sum(hand_user)}")
+        print(f"Dealer has {hand_computer}. Total: {sum(hand_computer)} Dealer wins!")
 
 
 
