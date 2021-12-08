@@ -50,6 +50,16 @@ def computer_play():
         sum(hand_computer)
     print(f"The dealers final hand is {hand_computer} Total: {sum(hand_computer)}")
 
+def ace_check():
+    if 11 in hand_user:
+        #new_hand_user = [num if num != 11 else 1 for num in hand_user]
+        #hand_user = new_hand_user
+        for index, num in enumerate(hand_user):
+            if num == 11:
+                hand_user[index] = 1
+        print(f"Your cards: {hand_user} Current total: {sum(hand_user)}")
+
+
 def evaluate():
     if sum(hand_computer) == 21:
         print(f"Dealer has {hand_computer}. Dealer Wins!")
@@ -88,12 +98,22 @@ while playing:
             playing = False
             computer_play()
             evaluate()
+    elif sum(hand_user) >= 22 and 11 in hand_user:
+        ace_check()
+        draw_again = input('Would you like to draw again? "Yes" or "No"\n').lower()
+        if draw_again == "yes":
+            draw()
+        else:
+            playing = False
+            computer_play()
+            evaluate()
+
     else:
         print(f"Your cards: {hand_user} Total: {sum(hand_user)}. You went over 21 You Lose")
         computer_play()
         playing = False
 
 # Remaining Tasks
-    # Show different values for the Ace depending on score
+
     # Create statements to show final card set of both players to the user
     # Refractor code
