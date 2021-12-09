@@ -37,8 +37,7 @@ def draw():
     """Draw fuction, takes a random card from the cards list and adds it to
     the users hand of cards"""
 
-    next_card = random.choice(cards)
-    hand_user.append(next_card)
+    hand_user.append(random.choice(cards))
     print(f"Your cards: {hand_user} Current total: {sum(hand_user)}")
 
 def computer_play():
@@ -47,8 +46,7 @@ def computer_play():
     a sum of 16 points"""
 
     while sum(hand_computer) < 16:
-        comp_next_card = random.choice(cards)
-        hand_computer.append(comp_next_card)
+        hand_computer.append(random.choice(cards))
         sum(hand_computer)
 
 def ace_change():
@@ -154,6 +152,7 @@ while True:
     if new_game == "yes":
         hand_user = []
         hand_computer = []
+        print("Welcome to blackJack!")
         game_start()
     else:
         break
