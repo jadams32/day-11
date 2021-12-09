@@ -145,7 +145,7 @@ def game_start():
 game_start()
 
 # Here a while loop is placed to ask the user if they wish to continue playing
-# This is something that was not asked of the project but convient to the user
+# This is something that was not asked of the project but convenient to the user
 while True:
     # Ask the user if they want to play again
     new_game = input('Would you like to play again? "Yes" or "No"\n').lower()
